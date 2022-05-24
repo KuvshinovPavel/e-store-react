@@ -1,0 +1,163 @@
+.main {
+    width: 100%;
+    height: 75%;
+}
+
+/*--------------------
+Shop Card
+---------------------*/
+.shop-card {
+    margin: 10px;
+    height: 300px;
+    width: 300px;
+    background: #f5f5f5;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-align: center;
+    float: left;
+}
+
+.shop-card figure {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.shop-card figure img {
+    margin: -95px 0 -60px;
+    width: 100%;
+}
+
+.shop-card .title {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #23211f;
+    margin-bottom: 5px;
+}
+
+.shop-card .desc {
+    font-size: 17px;
+    opacity: 0.8;
+    margin-bottom: 3px;
+}
+
+.shop-card .cta {
+    padding: 20px 20px 5px;
+}
+
+.shop-card .price {
+    float: left;
+    color: #FF3100;
+    font-size: 22px;
+    font-weight: 900;
+    padding-top: 2px;
+    margin-top: 4px;
+}
+
+.shop-card .btn {
+    position: relative;
+    z-index: 1;
+    float: right;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #FF3100;
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    line-height: 0.95;
+    background: none;
+    outline: none;
+    border: 1px solid #FF3100;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.shop-card .btn:hover {
+    background-color: #FF3100;
+    color: #f5f5f5;
+
+}
+
+
+/*--------------------
+Background
+--------------------*/
+body {
+    background-color: rgb(16, 152, 201);
+}
+
+
+.header {
+    display: flex;
+    justify-content: end;
+}
+
+.items {
+    grid-area: items;
+
+
+    width: 960px;
+    height: 100%;
+    /*background-color: rgb(43, 59, 65);*/
+    display: block;
+
+}
+.main-wrapper{
+    display: grid;
+    grid-template-areas: "categories items";
+    grid-gap: 15px;
+}
+.categories{
+    background-color: #d6d9d8;
+    grid-area: categories;
+}
+
+.searchButton svg {
+    width: 15px;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #d6d9d8;
+}
+
+.searchTerm:focus {
+    color: #848484;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.wrap {
+    margin: 15px auto;
+    width: 50%;
+
+}
+
+.header__cart svg {
+    width: 45px;
+}
