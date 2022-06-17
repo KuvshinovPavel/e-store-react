@@ -1,37 +1,38 @@
-import React, {FC, useState} from "react";
-import {Category} from "./Category";
+import React, {FC, useEffect, useState} from "react";
 import {ItemCard} from "./ItemCard";
-import {categories} from "../../redux/categories";
-import {items} from "../../redux/items";
+import {Aside} from "./Aside";
+import {Filters} from "./Filters";
+import {ProductProps} from "../../types/ProductProps";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProducts} from "../../redux/actions/productsAction";
+import {RootState} from "../../redux/store";
 
 export const MainPage: FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState('A');
+const dispatch = useDispatch<any>();
+
+const products:ProductProps[]=useSelector((data:RootState)=>data.products.items)
+
+    useEffect(()=>{
+        dispatch(fetchProducts(null))
+    },[] )
     return (
         <div className={'main-wrapper'}>
-
-            <div className={'categories'}>
-                {categories.map(c =>
-                    <Category
-                        selectedCategory={selectedCategory}
-                        setSelectedCategory={setSelectedCategory}
-                        id={c.id}
-                        subCategories={c.subCategories}
-                        name={c.name}/>)}
-            </div>
-
+            <Aside />
             <div className='items'>
-
                 {
-                    items.map(i =>
+                    products.map(i =>
                         <ItemCard
-                            imgSrc={i.imgSrc}
+                            id={i.id}
+                            key={`${i.id}_${i.title}_${i.price}_${i.description}`}
+                            imgUrl={i.imgUrl}
                             price={i.price}
                             title={i.title}
                             description={i.description}
-                        />)}
-
-
+                            categoryId={i.categoryId}
+                        />
+                    )}
             </div>
+            <Filters/>
         </div>
     )
 }

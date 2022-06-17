@@ -1,9 +1,26 @@
-.select {
+.category{
 
+    margin-top: 10px;
+}
+.name{
+    text-align: center;
+    font-family: SansSerif, serif  ;
+    font-size: 38px;
 }
 .subcategories{
+  text-align: center;
 
 }
+.subcategory, .selected{
+    cursor: pointer;
+    text-align: center;
+    font-family: SansSerif, serif  ;
+    font-size: 20px;
+}
+.subcategory:hover{
+    background-color: #c4c4c4;
+}
 .selected{
-    color: blue;
+    background-color: #a2a2a2;
+
 }

@@ -1,9 +1,19 @@
 import {FC} from "react";
+import {ReactComponent as AvatarSVG} from '../../assets/avatar.svg';
 
-export const HeaderAvatar:FC=()=>{
+interface HeaderAvatarProps {
+    visiblePopup: boolean;
+    setVisiblePopup: Function;
+}
+
+export const HeaderAvatar: FC<HeaderAvatarProps> = (props) => {
+    const {visiblePopup, setVisiblePopup} = props;
+    const handleClick = () => {
+        setVisiblePopup(!visiblePopup)
+    }
     return (
-        <div>
-            я татар
+        <div onClick={handleClick} className={'header__avatar'}>
+            <AvatarSVG/>
         </div>
     )
 }

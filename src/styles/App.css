@@ -3,9 +3,6 @@
     height: 75%;
 }
 
-/*--------------------
-Shop Card
----------------------*/
 .shop-card {
     margin: 10px;
     height: 300px;
@@ -82,38 +79,26 @@ Shop Card
 
 }
 
-
-/*--------------------
-Background
---------------------*/
 body {
-    background-color: rgb(16, 152, 201);
+    background-color: rgb(229, 229, 229);
 }
 
 
+
+
+
+.main-wrapper {
+    display: grid;
+    grid-template-areas: "aside items filters";
+    grid-gap: 15px;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+
+/* HEADER */
 .header {
     display: flex;
     justify-content: end;
-}
-
-.items {
-    grid-area: items;
-
-
-    width: 960px;
-    height: 100%;
-    /*background-color: rgb(43, 59, 65);*/
-    display: block;
-
-}
-.main-wrapper{
-    display: grid;
-    grid-template-areas: "categories items";
-    grid-gap: 15px;
-}
-.categories{
-    background-color: #d6d9d8;
-    grid-area: categories;
 }
 
 .searchButton svg {
@@ -127,13 +112,13 @@ body {
 
 .searchTerm {
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #FF3100;
     border-right: none;
     padding: 5px;
     height: 20px;
     border-radius: 5px 0 0 5px;
     outline: none;
-    color: #d6d9d8;
+    color: #000000;
 }
 
 .searchTerm:focus {
@@ -143,8 +128,8 @@ body {
 .searchButton {
     width: 40px;
     height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
+    border: 1px solid #FF3100;
+    background: #FF3100;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -159,5 +144,70 @@ body {
 }
 
 .header__cart svg {
-    width: 45px;
+    width: 60px;
 }
+
+.header__avatar svg {
+    cursor: pointer;
+    width: 40px;
+}
+
+.header__cart svg, .header__avatar svg {
+    margin: 5px;
+    width: 60px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+/*   FILTERS  */
+.filters {
+    grid-area: filters;
+}
+
+.aside {
+    grid-area: aside;
+}
+
+.filters, .aside {
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.filters__title {
+    text-align: center;
+
+}
+
+.filters__wrapper {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+}
+
+.filters__wrapper input {
+    width: 125px;
+    margin: 5px;
+
+}
+
+.items {
+    grid-area: items;
+    width: 960px;
+    height: 100%;
+    display: block;
+
+}
+
+.profile__options {
+    padding: 15px;
+    width: 170px;
+
+    position: absolute;
+    background-color: #c0c0c0;
+    margin-right: 5px;
+    margin-top: 60px;
+    border-radius: 15px;
+}
+

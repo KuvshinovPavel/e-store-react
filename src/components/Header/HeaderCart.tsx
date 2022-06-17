@@ -9,8 +9,8 @@ interface HeaderCartProps {
 export const HeaderCart: FC<HeaderCartProps> = (props) => {
     return (
         <div className='header__cart'>
-            <NavLink to={"/cart"}>To cart</NavLink>
-            <CartSVG/>
+            <NavLink to={"/cart"}><CartSVG/></NavLink>
+
         </div>
     );
 }

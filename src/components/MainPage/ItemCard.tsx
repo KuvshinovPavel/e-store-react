@@ -1,13 +1,10 @@
 import {FC} from 'react';
+import {ProductProps} from "../../types/ProductProps";
 
-interface ItemCardProps {
-    title: string,
-    description: string,
-    imgSrc:string,
-    price:number
-}
 
-export const ItemCard: FC<ItemCardProps>= (props: ItemCardProps) => {
+
+export const ItemCard: FC<ProductProps>= (props) => {
+    const {title, description, imgUrl, price, id, categoryId} =props;
     return (
         <div className="shop-card">
             <div className="title">
@@ -18,7 +15,7 @@ export const ItemCard: FC<ItemCardProps>= (props: ItemCardProps) => {
             </div>
             <div className="slider">
                 <figure data-color="#E24938, #A30F22">
-                    <img alt={''} src={props.imgSrc}/>
+                    <img alt={''} src={props.imgUrl}/>
                 </figure>
 
             </div>

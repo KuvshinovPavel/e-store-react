@@ -1,41 +1,32 @@
-import {FC, useState} from "react";
+import React, {FC, } from "react";
 import '../../styles/category.css';
+import classNames from "classnames";
+import {CategoryProps} from "../../types/CategoryProps";
 
-interface CategoryProps {
-    id: string,
-    name: string,
-    subCategories: SubCategory[],
-    selectedCategory: string,
-    setSelectedCategory: Function
-}
 
-interface SubCategory {
-    id: string,
-    name: string,
-    type: string
-}
 
-export const Category: FC<CategoryProps> = (props) => {
-    const {id, name, subCategories, selectedCategory, setSelectedCategory} = props;
+
+ const Category: FC<CategoryProps> = (props) => {
+    const {id, name,  selectedCategory, setSelectedCategory, type } = props;
 
 
     const expandCategory = () => {
 
 
     }
-    const minimizeCategory = (type: string) => {
-        setSelectedCategory(type);
+    const selectCategory = (id: number) => {
+        setSelectedCategory(id);
 
     }
+
     return (
-        <div onClick={expandCategory} className="select">
-            {name}
-            <ul className='subcategories'>
-                {subCategories.map(c =>
-                    <li className={selectedCategory === c.type ? 'selected' : ''}
-                        onClick={() => minimizeCategory(c.type)}>{c.name}</li>
-                )}
-            </ul>
+        <div onClick={expandCategory} className='category'>
+           <div
+               onClick={() => selectCategory(id)}
+               className={  classNames('name',{'selected':selectedCategory === id,'subcategory':selectedCategory!==id})}>
+               {name} </div>
         </div>
     )
 }
+
+export default React.memo(Category)
