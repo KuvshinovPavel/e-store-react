@@ -1,6 +1,6 @@
 export interface CategoryProps{
     id:number,
-    name:string,
+    categoryName:string,
     type:string,
     selectedCategory:number,
     setSelectedCategory:Function

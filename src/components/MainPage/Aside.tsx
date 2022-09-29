@@ -4,7 +4,7 @@ import Category from "./Category";
 import axios from "axios";
 import {CategoryProps} from "../../types/CategoryProps";
 import {useDispatch} from "react-redux";
-import {fetchProducts} from "../../redux/actions/productsAction";
+import {fetchProductsByCategory} from "../../redux/actions/productsAction";
 
 
 export const Aside: FC = (props) => {
@@ -15,7 +15,7 @@ export const Aside: FC = (props) => {
     const dispatch = useDispatch<any>();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/categories')
+        axios.get('http://localhost:5000/categories')
             .then(
                 (response) => {
                     setCategories(response.data);
@@ -25,7 +25,7 @@ export const Aside: FC = (props) => {
     }, [])
 
     useEffect(()=>{
-dispatch(fetchProducts(selectedCategory))
+dispatch(fetchProductsByCategory(selectedCategory))
         },
         [selectedCategory])
 
@@ -41,7 +41,7 @@ dispatch(fetchProducts(selectedCategory))
                             setSelectedCategory={setSelectedCategory}
                             type={c.type}
                             id={c.id}
-                            name={c.name}/>)}
+                            categoryName={c.categoryName}/>)}
             </div>
         </div>
     )

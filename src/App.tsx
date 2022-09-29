@@ -6,6 +6,7 @@ import {MainPage} from "./components/MainPage/MainPage";
 import {Route, Routes} from "react-router-dom";
 import {Cart} from "./components/Cart/Cart";
 import {Profile} from "./components/Profile/Profile";
+import {Product} from "./components/ProductPage/Product";
 
 
 function App() {
@@ -13,11 +14,15 @@ function App() {
     return (
         <div className='main'>
             <Header/>
-           <Routes>
-            <Route path="/" element={<MainPage/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-
+            <Routes>
+                <Route path="/" element={<MainPage/>}/>
+                <Route path="/cart" element={<Cart/>}/>
+                <Route path="/profile" element={<Profile/>}/>
+                <Route
+                    path={"/product/:id"}
+                    element={
+                        <Product/>
+                    }/>
             </Routes>
         </div>
     );

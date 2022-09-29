@@ -1,7 +1,8 @@
 import {ProductsAction, ProductsActionTypes} from "../types/productsTypes";
+import {ProductProps} from "../../types/ProductProps";
 
 const initState = {
-    items: [],
+    items: [] || {} as ProductProps || {},
     loaded: false
 }
 
@@ -12,10 +13,10 @@ export const productsReducer = (state = initState, action: ProductsAction) => {
             items: action.payload,
             loaded: true
         }
-    }
-
-    else if (action.type === ProductsActionTypes.SET_LOADED) {
+    } else if (action.type === ProductsActionTypes.SET_LOADED) {
         return {...state, loaded: action.payload}
+    } else if (action.type === ProductsActionTypes.FIND_PRODUCTS) {
+        return {...state, items: action.payload}
     }
 
     return {

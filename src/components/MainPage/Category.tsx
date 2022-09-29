@@ -7,7 +7,7 @@ import {CategoryProps} from "../../types/CategoryProps";
 
 
  const Category: FC<CategoryProps> = (props) => {
-    const {id, name,  selectedCategory, setSelectedCategory, type } = props;
+    const {id, categoryName,  selectedCategory, setSelectedCategory, type } = props;
 
 
     const expandCategory = () => {
@@ -24,7 +24,7 @@ import {CategoryProps} from "../../types/CategoryProps";
            <div
                onClick={() => selectCategory(id)}
                className={  classNames('name',{'selected':selectedCategory === id,'subcategory':selectedCategory!==id})}>
-               {name} </div>
+               {categoryName} </div>
         </div>
     )
 }

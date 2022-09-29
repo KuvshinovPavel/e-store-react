@@ -3,33 +3,53 @@ import {ProductsActionTypes} from "../types/productsTypes";
 import axios from "axios";
 import {productsAPI} from "../../api/productsAPI";
 
-export const fetchProducts=(categoryId: number | null)=>{
-    return async (dispatch:Dispatch)=>{
-        try{
-
-            const response = await productsAPI.fetchProducts(categoryId)
-                .then(({data})=> {
-                    dispatch({type:ProductsActionTypes.FETCH_PRODUCTS, payload:data});
+export const fetchAllProducts = () => {
+    return async (dispatch: Dispatch) => {
+        try {
+            await productsAPI.fetchAllProducts()
+                .then(({data}) => {
+                    dispatch({type: ProductsActionTypes.FETCH_PRODUCTS, payload: data});
                 })
-        }
-        catch (e){
+        } catch (e) {
             console.log(e)
         }
     }
 }
 
-// export const fetchProductsByCategoryId=(categoryId: number)=>{
-//     return async (dispatch:Dispatch)=>{
-//         try{
-//
-//             const response = await productsAPI.fetchProductsByCategoryId(categoryId)
-//                 .then(({data})=> {
-//                     dispatch({type:ProductsActionTypes.FETCH_PRODUCTS_BY_CATEGORY, payload:data});
-//                 })
-//         }
-//         catch (e){
-//             console.log(e)
-//         }
-//     }
-// }
+export const fetchProductsByCategory = (categoryId: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            await productsAPI.fetchProductsByCategory(categoryId)
+                .then(({data})=>{
+                    dispatch({type: ProductsActionTypes.FETCH_PRODUCTS, payload: data})
+                })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+}
 
+export const findProducts = (substring: string) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            await productsAPI.findProducts(substring)
+                .then(({data}) => {
+                    dispatch({type: ProductsActionTypes.FIND_PRODUCTS, payload: data})
+                })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+export const fetchProduct = (id: number) => {
+    return async (dispatch: Dispatch) => {
+        try {
+            await productsAPI.fetchProductById(id)
+                .then(({data}) => {
+                    dispatch({type: ProductsActionTypes.FETCH_PRODUCTS, payload: data})
+                })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
