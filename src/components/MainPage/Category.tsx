@@ -1,30 +1,30 @@
-import React, {FC, } from "react";
+import React, {FC,} from "react";
 import '../../styles/category.css';
 import classNames from "classnames";
-import {CategoryProps} from "../../types/CategoryProps";
+import {CategoryProps} from "../../types/category/CategoryProps";
+import {Subcategory} from "./Subcategory";
+
+//TODO TEST DATA
 
 
+const Category: FC<CategoryProps> = (props) => {
+    const {data,} = props;
+//selectedCategory, setSelectedCategory, type
 
-
- const Category: FC<CategoryProps> = (props) => {
-    const {id, categoryName,  selectedCategory, setSelectedCategory, type } = props;
-
-
-    const expandCategory = () => {
-
-
-    }
-    const selectCategory = (id: number) => {
-        setSelectedCategory(id);
-
-    }
+    // const expandCategory = () => {
+    //
+    //
+    // }
+    // const selectCategory = (id: number) => {
+    //     setSelectedCategory(id);
+    //
+    // }
 
     return (
-        <div onClick={expandCategory} className='category'>
-           <div
-               onClick={() => selectCategory(id)}
-               className={  classNames('name',{'selected':selectedCategory === id,'subcategory':selectedCategory!==id})}>
-               {categoryName} </div>
+        <div>
+            <ul>
+                {data.map((c) =>  <Subcategory data={c}/>  )}
+            </ul>
         </div>
     )
 }

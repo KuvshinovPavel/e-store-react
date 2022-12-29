@@ -12,6 +12,7 @@ const dispatch = useDispatch<any>();
 
 const products:ProductProps[]=useSelector((data:RootState)=>data.products.items)
 
+
     useEffect(()=>{
         dispatch(fetchAllProducts())
     },[] )
